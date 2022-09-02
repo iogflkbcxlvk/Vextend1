@@ -18,4 +18,14 @@ bot.on("ready", async() =>{
     }, 3000)
 })
 
+bot.on("guildMemberAdd", (member) =>{
+    const rulesChannel = "1015298495458062417"
+    const channelID = "1015304437922795540"
+
+    const message = `Szia! <@${member.id}>! Olvasd el a szabályzatot!😀 ${member.guild.channels.cache.get(rulesChannel).toString}`
+
+    const channel = member.guild.channels.cache.get(channelID);
+    channel.send(message)
+})
+
 bot.login(process.env.BOT_TOKEN);
